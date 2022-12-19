@@ -1,0 +1,5 @@
+name: augur
+include:
+  src
+depend:
+  standard-library
