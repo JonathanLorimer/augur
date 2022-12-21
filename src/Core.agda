@@ -12,11 +12,11 @@ open Data.List
 
 -- A representation of authorization as a mapping from an actor to a set of resources.
 -- The use of lists here is for simplicity, we should assume that list membership is unique.
-record Authorization (Actor Resource : Set) : Set where
+record Relation (A B : Set) (A₁ B₁ : Set₁) : Set₁ where
   field
-    authorize : Actor → List Resource
+    rel : A → B₁
 
-    inspect : Resource → List Actor
+    rel-inv : B → A₁
 
-_∘_ : { A B C : Set } → Authorization A B → Authorization B C → Authorization A C
+_∘_ : { A B C : Set } → { A₁ B₁ C₁ : Set₁ } → Relation A B A₁ B₁ → Relation B C B₁ C₁ → Relation A C A₁ C₁
 _∘_ = ?
